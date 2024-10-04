@@ -13,7 +13,9 @@ import MyAccount from "./components/myAccount";
 const HARDHAT_NETWORK_ID = "0x89"
 const NEW_NFT_ADDRESS = "0xb13640172190f09b9223b37d9D2425dEc916d829"
 const MARKET_ADDRESS = "0xAe186d642c86748EAb57E251E542a8e968D93234"
+const tg = window.Telegram.WebApp
 
+console.log(tg.initData)
 
 export default function Home() {
   const [txBeingSent, setTxBeingSent] = useState();
