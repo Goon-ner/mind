@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ethers } from "ethers";
-// import { NewNFT__factory, NewNFTMarket__factory } from "./typechain/index.ts";
 import { NewNFT__factory } from "./typechain/factories/NewNFT__factory.ts";
 import { NewNFTMarket__factory } from "./typechain/factories/NewNFTMarket__factory.ts";
 import NftList from "./components/nftList"
@@ -15,7 +14,7 @@ const NEW_NFT_ADDRESS = "0xb13640172190f09b9223b37d9D2425dEc916d829"
 const MARKET_ADDRESS = "0xAe186d642c86748EAb57E251E542a8e968D93234"
 const tg = window.Telegram.WebApp
 
-console.log(tg.initData)
+console.log(tg.WebAppUser.id)
 
 export default function Home() {
   const [txBeingSent, setTxBeingSent] = useState();
