@@ -55,49 +55,52 @@ const Header = ({
       );
 
     return (
-        <div className="header">
-        <NavLink to='/' className="title">
-          <h2>Open mind</h2>
-          <h3>The easiest way<p>to mint NFT</p></h3>
-        </NavLink>
-        {currentConnection?.signer && (
-          <div className="headerButtons">
-            <div>
-              <button className="headerMint" onClick={openMint}>Mint NFT</button>
+      <div className="header">
+        {!currentConnection?.signer && (
+          <div className="header-not-connect">
+            <NavLink to='/' className="header-not-connect-title">
+              <h2>Open mind</h2>
+              <h3>The easiest way<p>to mint NFT</p></h3>
+            </NavLink>
+            <ConnectWallet
+            connectWallet={_connectWallet}
+            networkError={networkError}
+            dismiss={dismissNet}
+            />
+          </div>
+        )}
+          {currentConnection?.signer && (
+          <div className="header-connected">
+              <NavLink to='/' className="header-connected-title">
+                <h2>Open mind</h2>
+                <h3>The easiest way<p>to mint NFT</p></h3>
+              </NavLink>
+            <div className="header-main">
+              <div className="headerButtons">
+                <div>
+                  <button className="headerMint" onClick={openMint}>Mint NFT</button>
+                </div>
+                <NavLink to="/account"><button className="headerAcc">My Account</button></NavLink>
+              </div>
+              <div className="wallet">
+                <div>Your address: {currentConnection.signer.address.slice(0,4)+'...'+currentConnection.signer.address.slice(39,42)}</div>
+                {currentBalance && (
+                  <div>Your balance: {Number((ethers.formatEther(currentBalance))).toFixed(4)} POL</div>
+                )}
+                {txBeingSent && <WaitingForTransactionMessage txHash={txBeingSent} />}
+                {transactionError && (
+                  <TransactionErrorMessage
+                  message={_getRpcErrorMessage(transactionError)}
+                  dismiss={dismissTx}
+                  />
+              )}
+              </div>
             </div>
-            <NavLink to="/account"><button className="headerAcc">My Account</button></NavLink>
           </div>
           )}
-        <div className="connect">
-          {!currentConnection?.signer && (
-            <div>
-              <ConnectWallet
-              connectWallet={_connectWallet}
-              networkError={networkError}
-              dismiss={dismissNet}
-              />
-            </div>
-          )}
-          {currentConnection?.signer && (
-            <p>Your address: {currentConnection.signer.address.slice(0,4)+'...'+currentConnection.signer.address.slice(39,42)}</p>
-          )}
-
-          {txBeingSent && <WaitingForTransactionMessage txHash={txBeingSent} />}
-
-          {transactionError && (
-            <TransactionErrorMessage
-            message={_getRpcErrorMessage(transactionError)}
-            dismiss={dismissTx}
-            />
-          )}
-
-          {currentBalance && (
-            <p>Your balance: {Number((ethers.formatEther(currentBalance))).toFixed(4)} POL</p>
-          )}
-        </div>
-        <Modal className="modal" ariaHideApp={false} isOpen={mintModal} onRequestClose={closeMint}>
-          {mintModalContent}
-        </Modal>
+          <Modal className="modal" ariaHideApp={false} isOpen={mintModal} onRequestClose={closeMint}>
+            {mintModalContent}
+          </Modal>
       </div>
     )
 }

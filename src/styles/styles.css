@@ -3,19 +3,19 @@ body,
 #root {
   margin: 0px;
   padding: 0px;
-  background-color: rgb(138, 144, 149);
+  background-color: rgb(25, 25, 25);
   height: 100%;
 }
 a {
-  color: black;
+  color: azure;
   text-decoration: none;
 }
 .body {
   display: flex;
-    flex-direction: column;
-    margin: 0px;
-    padding: 0px;  
-    min-height: 100%;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;  
+  min-height: 100%;
 }
 @media (min-width: 1243px){
 .mainPage {
@@ -26,14 +26,35 @@ a {
     flex: 1 1 auto;
   }
 .header {
-  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   max-width: 80%;
   margin: 0px;
   padding: 0px 10%;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgba(0, 255, 255, 0.65);;
+  background-color: rgba(25, 25, 25, 0.9);
   border: solid black 3px;
+  box-shadow: 0.2em 0.2em .4em rgb(255, 255, 255);
+  color: azure;
+}
+.header-connected {
+  display: flex;
+  justify-content: space-between;
+}
+.header-connected-title {
+  max-width: 30%;
+}
+.header-not-connect {
+  display: flex;
+  justify-content: space-between;
+}
+.header-main {
+  display: flex;
+  min-width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  /* margin-left: 25%; */
 }
 .nftList, .accountNft {
   display: flex;
@@ -50,23 +71,22 @@ a {
   margin: 2.4%;
   padding: 1%;
   font-family: 'Segoe UI';
-  background-color: rgba(0, 255, 255, 0.65);
+  background-color: rgba(25, 25, 25, 0.65);
   max-height: 100%;
-  border: solid black 3px;
+  border: solid black 1px;
+  box-shadow: -0.1em -0.1em .4em rgb(255, 255, 255);
+  color: azure;
   text-align: end;
   transition: 0.5s;
 }
 .nft:hover {
   transform: scale(1.25)
 }
-
-/* img {
-  max-width: 100%;
-} */
 button {
-  color: rgba(0, 255, 255);
+  color: azure;
   background-color: rgb(0, 0, 0);
   border: solid black 3px;
+  box-shadow: 0.1em 0.1em .4em rgb(255, 255, 255);
   padding: 2%;
   font-size: 16px;
   font-weight: 700;
@@ -81,26 +101,36 @@ button {
   padding: 0px 10%;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 255, 255, 0.65);;
+  background-color: rgba(25, 25, 25, 0.65);;
   border: solid black 3px;
+  box-shadow: -0.2em -0.2em .4em rgb(255, 255, 255);
+  color: azure;
+
 }
 .headerButtons {
   display: flex;
-  width: 35%;
-  justify-content: space-around;
+  /* padding: 0 5%; */
 }
 .headerMint, .headerAcc{
-  width: 100%;
+  width: 8em;
   text-wrap: nowrap;
-  margin: 0 15px;
   padding: 5px;
+}
+.wallet {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 0;
 }
 .modal {
   /* width: 60%; */
   /* max-height: 60%; */
-  background-color: rgb(138, 144, 149);
+  background-color: rgba(25, 25, 25, 0.65);
   /* position: absolute; */
-  margin: 10% 20%;
+  margin: 30% 20%;
+  border: solid rgb(0, 0, 0) 3px;
+  box-shadow: -0.2em -0.2em .4em rgb(0, 0, 0), 0.2em 0.2em .4em rgb(0, 0, 0);
+
 }
 .modalContent {
   text-align: center;
@@ -119,8 +149,8 @@ button {
   height: 400px;
 }
 input {
-  color: black;
-  background-color: rgb(0, 255, 255, 0.65);
+  color: azure;
+  background-color: rgba(25, 25, 25, 0.65);
   /* border: solid rgba(0, 255, 255) 3px; */
   border: solid black 2px;
   padding: 2%;
@@ -132,7 +162,7 @@ input {
 }
 .formSubmit {
   background-color: black;
-  color: rgb(0, 255, 255);
+  color: azure;
 }
 }
 @media (min-width: 768px) and (max-width: 1243px){
@@ -144,14 +174,25 @@ input {
     flex: 1 1 auto;
   }
 .header {
-  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   max-width: 90%;
   margin: 0px;
   padding: 0px 5%;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgba(0, 255, 255, 0.65);;
+  background-color: rgba(25, 25, 25, 0.9);;
   border: solid black 3px;
+  box-shadow: 0.2em 0.2em .4em rgb(255, 255, 255);
+  color: azure;
+}
+.header-connected, .header-not-connect {
+  display: flex;
+  justify-content: space-between;
+}
+.header-main {
+  display: flex;
+  text-align: center;
+  align-items: center;
 }
 .nftList, .accountNft {
   display: flex;
@@ -168,11 +209,13 @@ input {
   margin: 1%;
   padding: 1%;
   font-family: 'Segoe UI';
-  background-color: rgba(0, 255, 255, 0.65);
+  background-color: rgba(25, 25, 25, 0.65);
   max-height: 100%;
-  border: solid black 3px;
+  border: solid rgb(255, 255, 255) 1px;
+  box-shadow: 0.1em 0.1em .4em rgb(255, 255, 255);
   text-align: end;
   transition: 0.5s;
+  color: azure;
 }
 .nft:hover {
   transform: scale(1.1)
@@ -182,9 +225,10 @@ img {
   max-width: 100%;
 }
 button {
-  color: rgba(0, 255, 255);
+  color: azure;
   background-color: rgb(0, 0, 0);
   border: solid black 3px;
+  box-shadow: 0.1em 0.1em .4em rgb(255, 255, 255);
   padding: 2%;
   font-size: 16px;
   font-weight: 700;
@@ -199,25 +243,36 @@ button {
   padding: 0px 10%;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 255, 255, 0.65);;
-  border: solid black 3px;
+  background-color: rgba(25, 25, 25, 0.65);;
+  border: solid rgb(0, 0, 0) 3px;
+  box-shadow: -0.2em -0.2em .4em rgb(255, 255, 255);
+  color: azure;
 }
 .headerButtons {
   display: flex;
-  width: 35%;
-  justify-content: space-around;
+  padding-right: 10%;
 }
 .headerMint, .headerAcc{
-  width: 100%;
+  width: 8em;
   text-wrap: nowrap;
-  margin: 0 15px;
   padding: 5px;
+}
+.wallet {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+p {
+  display: flex;
+  flex-wrap: nowrap;
 }
 .modal {
   width: 70%;
-  background-color: rgb(138, 144, 149);
+  background-color: rgb(25, 25, 25, 0.65);
   /* position: absolute; */
-  margin: 10% 15%;
+  margin: 30% 15%;
+  border: solid rgb(0, 0, 0) 3px;
+  box-shadow: -0.2em -0.2em .4em rgb(0, 0, 0), 0.2em 0.2em .4em rgb(0, 0, 0);
 }
 .modalContent {
   text-align: center;
@@ -230,8 +285,8 @@ button {
   align-items: center; 
 }
 input {
-  color: black;
-  background-color: rgb(0, 255, 255, 0.65);
+  color: azure;
+  background-color: rgb(25, 25, 25, 0.65);
   /* border: solid rgba(0, 255, 255) 3px; */
   border: solid black 2px;
   padding: 2%;
@@ -243,7 +298,7 @@ input {
 }
 .formSubmit {
   background-color: black;
-  color: rgb(0, 255, 255);
+  color: azure;
 }
 }
 @media (max-width: 767px){
@@ -255,23 +310,42 @@ input {
     flex: 1 1 auto;
 }
 .header {
-  display: flex;
-  flex-direction: column;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   max-width: 100%;
   margin: 0px;
-  padding: 0px 2%;
-  align-items: center;
+  padding: 2%;
   justify-content: space-between;
-  background-color: rgba(0, 255, 255, 0.65);;
+  background-color: rgba(25, 25, 25, 0.9);;
   border: solid black 3px;
+  box-shadow: 0.2em 0.2em .4em rgb(255, 255, 255);
   font-size: 12px;
+  color: azure;
+}
+.header-not-connect, .header-connected {
+  display: flex;
+}
+.header-not-connect-title {
+  margin-right: 10%;
+}
+.header-connected {
+  justify-content: flex-start;
+}
+.header-main {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.wallet {
+  text-align: end;
+  padding: 5% 0;
 }
 .nftList, .accountNft {
   display: flex;
   max-width: 100%;
   margin: 2.4% 2%;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
 }
 .nft {
   width: 44%;
@@ -282,23 +356,22 @@ input {
   padding: 1%;
   font-size: 12px;
   font-family: 'Segoe UI';
-  background-color: rgba(0, 255, 255, 0.65);
+  background-color: rgba(25, 25, 25, 0.65);
   max-height: 100%;
-  border: solid black 3px;
+  border: solid rgb(255, 255, 255) 1px;
+  box-shadow: 0.1em 0.1em .4em rgb(255, 255, 255);
   text-align: end;
   transition: 0.5s;
+  color: azure;
 }
-/* .nft:hover {
-  transform: scale(1.25)
-} */
-
 img {
   max-width: 100%;
 }
 button {
-  color: rgba(0, 255, 255);
+  color: azure;
   background-color: rgb(0, 0, 0);
   border: solid black 3px;
+  box-shadow: 0.1em 0.1em .4em rgb(255, 255, 255);
   padding: 2%;
   font-size: 12px;
   font-weight: 700;
@@ -306,6 +379,7 @@ button {
   width: 100%;
 }
 .footer {
+  color: azure;
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -313,26 +387,29 @@ button {
   padding: 0px 10%;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 255, 255, 0.65);;
+  background-color: rgba(25, 25, 25, 0.65);;
   border: solid black 3px;
+  box-shadow: -0.2em -0.2em .4em rgb(255, 255, 255);
   font-size: 12px;
 }
 .headerButtons {
   display: flex;
-  width: 35%;
-  justify-content: center;
+  margin: 10% 0 0 0;
 }
 .headerMint, .headerAcc{
-  width: 100%;
+  width: 8em;
   text-wrap: nowrap;
-  margin: 0 15px;
+  /* margin: 0 15px; */
   padding: 5px;
 }
 .modal {
   width: 60%;
-  background-color: rgb(138, 144, 149);
+  background-color: rgba(25, 25, 25, 0.65);
   /* position: absolute; */
-  margin: 10% 20%;
+  margin: 40% 20%;
+  border: solid rgb(0, 0, 0) 3px;
+  box-shadow: -0.2em -0.2em .4em rgb(0, 0, 0), 0.2em 0.2em .4em rgb(0, 0, 0);
+
 }
 .modalContent {
   text-align: center;
@@ -349,8 +426,8 @@ button {
   /* max-height: 50%;
 } */ 
 input {
-  color: black;
-  background-color: rgb(0, 255, 255, 0.65);
+  color: azure;
+  background-color: rgba(25, 25, 25, 0.65);
   /* border: solid rgba(0, 255, 255) 3px; */
   border: solid black 2px;
   padding: 2%;
@@ -362,6 +439,6 @@ input {
 }
 .formSubmit {
   background-color: black;
-  color: rgb(0, 255, 255);
+  color: azure;
 }
 }

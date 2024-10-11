@@ -8,7 +8,7 @@ const ConnectWallet = ({
   dismiss,
 }) => {
   return (
-    <>
+    <div>
       <div>
         {networkError && (
           <NetworkErrorMessage message={networkError} dismiss={dismiss} />
@@ -19,7 +19,7 @@ const ConnectWallet = ({
       <button type="button" onClick={connectWallet}>
         Connect wallet!!!
       </button>
-    </>
+    </div>
   );
 };
 
